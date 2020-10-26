@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.MainActivity">
+
+        <TextView
+            android:id="@+id/txtNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:text="Nombre"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.325"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Escribe aqui tu nombre"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtNombre"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombre"/>
+
+        <TextView
+            android:id="@+id/txtTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Telefono"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/etNombre"
+            app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="Escribe aqui tu nombre"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtTelefono"
+            app:layout_constraintTop_toBottomOf="@+id/txtTelefono"/>
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Email"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/etTelefono"
+            app:layout_constraintTop_toBottomOf="@+id/etTelefono" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Escribe aqui tu nombre"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtEmail"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmail"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/etEmail"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail">
+
+            <TextView
+                android:id="@+id/txtQTFan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3sp"
+                android:text="¿Que tan fan eres del bicho?"
+                android:textColor="@color/colorPrimary" />
+
+            <RadioButton
+                android:id="@+id/rdFan1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="El bicho es mi estilo de vida" />
+
+            <RadioButton
+                android:id="@+id/rdFan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bichologo normal" />
+
+            <RadioButton
+                android:id="@+id/rdFan3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Al chile soy pulgologo" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtEquipos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:lineSpacingExtra="3sp"
+            android:text="¿De que equipo tienes\n un jersey del bicho?"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/etEmail"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+        <CheckBox
+            android:id="@+id/chkPortugal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Portugal"
+            app:layout_constraintStart_toStartOf="@+id/txtEquipos"
+            app:layout_constraintTop_toBottomOf="@+id/txtEquipos" />
+
+        <CheckBox
+            android:id="@+id/chkSporting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Sporting"
+            app:layout_constraintStart_toStartOf="@+id/chkPortugal"
+            app:layout_constraintTop_toBottomOf="@+id/chkPortugal" />
+
+        <CheckBox
+            android:id="@+id/chkManUtd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manchester"
+            app:layout_constraintStart_toStartOf="@+id/chkSporting"
+            app:layout_constraintTop_toBottomOf="@+id/chkSporting" />
+
+        <CheckBox
+            android:id="@+id/chkRealMadrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Real Madrid"
+            app:layout_constraintStart_toStartOf="@+id/chkManUtd"
+            app:layout_constraintTop_toBottomOf="@+id/chkManUtd" />
+
+
+        <CheckBox
+            android:id="@+id/chkJuventus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Juventus"
+            app:layout_constraintStart_toStartOf="@+id/chkRealMadrid"
+            app:layout_constraintTop_toBottomOf="@+id/chkRealMadrid" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chkJuventus" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/colorAccent"
+            android:clickable="true"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_check"
+            app:tint="@color/colorPrimary" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

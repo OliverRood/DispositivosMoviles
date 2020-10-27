@@ -4,9 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.rgoe.bichofans.models.dao.FanDAO
 import com.rgoe.bichofans.models.entities.Fan
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 @Database(
@@ -26,17 +29,20 @@ abstract class FanDB : RoomDatabase(){
                     context,
                     FanDB::class.java,
                     "fan.db"
-                ).allowMainThreadQueries().build()
+                ).fallbackToDestructiveMigration()
+                    .build()
 
-                instance?.initDB()
+                CoroutineScope(Dispatchers.IO).launch {
+                    instance?.initDB()
+                }
             }
             return instance as FanDB
         }
     }
 
-    fun initDB(){
+    suspend fun initDB(){
         val fanDAO = fanDAO()
-        if (fanDAO.getAllFans().isEmpty()){
+        if (fanDAO.getAllFanSync().isEmpty()){
             fanDAO.insertFan(
                 Fan(
                     name = "Oli",

@@ -1,5 +1,6 @@
 package com.rgoe.bichofans.models.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,6 +14,9 @@ abstract class FanDAO {
     abstract fun insertFan(content: Fan)
 
     @Query("SELECT * FROM Fan")
-    abstract fun getAllFans() : List<Fan>
+    abstract fun getAllFan() : LiveData<List<Fan>>
+
+    @Query("SELECT * FROM Fan")
+    abstract suspend fun getAllFanSync() : List<Fan>
 
 }

@@ -3,12 +3,10 @@ package com.rgoe.bichofans.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.RadioButton
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener{
-            val intent = Intent(this, FansView::class.java)
+            val intent = Intent(this, Fans::class.java)
             startActivity(intent)
         }
     }

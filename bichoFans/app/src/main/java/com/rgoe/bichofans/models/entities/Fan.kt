@@ -1,13 +1,15 @@
 package com.rgoe.bichofans.models.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class Fan (
-    val id: Long,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long?=null,
     val name: String,
     val phone: String,
     val mail: String,
     val fanLvl: String,
-    val jerserys: String
+    val jerseys: String
 )

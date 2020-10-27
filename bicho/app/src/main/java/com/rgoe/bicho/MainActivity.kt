@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener(fabClick)
-
     }
 
     fun createJerseys(): List<Jersey>{

@@ -13,6 +13,6 @@ abstract class FanDAO {
     abstract fun insertFan(content: Fan)
 
     @Query("SELECT * FROM Fan")
-    abstract fun getAllFans()
+    abstract fun getAllFans() : List<Fan>
 
 }

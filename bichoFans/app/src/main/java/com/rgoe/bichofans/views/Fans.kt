@@ -2,13 +2,16 @@ package com.rgoe.bichofans.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rgoe.bichofans.R
 import com.rgoe.bichofans.adapters.FanAdapter
-import com.rgoe.bichofans.models.roomdb.FanDB
+import com.rgoe.bichofans.viewmodels.FansViewModel
 
-class FansView : AppCompatActivity() {
+class Fans : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fans_view)
@@ -16,13 +19,11 @@ class FansView : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewFans)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val fanDB = FanDB.getInstance(this)
-        val fanDAO = fanDB.fanDAO()
-        val fans = fanDAO.getAllFans()
-
-        val fanAdapter = FanAdapter(fans)
-        recyclerView.adapter=fanAdapter
-        fanAdapter.notifyDataSetChanged()
-
+        val viewModel : FansViewModel by viewModels()
+        viewModel.getFans().observe(this, { fans ->
+            val fanAdapter = FanAdapter(fans)
+            recyclerView.adapter=fanAdapter
+            fanAdapter.notifyDataSetChanged()
+        })
     }
 }

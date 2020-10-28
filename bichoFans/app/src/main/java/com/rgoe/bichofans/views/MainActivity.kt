@@ -73,8 +73,8 @@ class MainActivity : AppCompatActivity() {
 
             if(name.isNullOrEmpty() || phone.isNullOrEmpty() || email.isNullOrEmpty()){
                 val alertDialog = AlertDialog.Builder(fan.context)
-                    .setTitle("ERROR")
-                    .setMessage("CAMPO VACIO AL AGREGAR")
+                    .setTitle("Error")
+                    .setMessage("Se encuentra uno (o mas) campos vacios, no es posible agregar.")
                     .setPositiveButton("OK",null)
                     .create()
                 alertDialog.show()

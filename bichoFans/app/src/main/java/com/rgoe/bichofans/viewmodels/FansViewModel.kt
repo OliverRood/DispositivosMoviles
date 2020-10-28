@@ -3,14 +3,16 @@ package com.rgoe.bichofans.viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
 import com.rgoe.bichofans.models.entities.Fan
-import com.rgoe.bichofans.models.roomdb.FanDB
+import com.rgoe.bichofans.repositories.FanRepository
 
 class FansViewModel(application: Application) : AndroidViewModel(application){
-    private val fanDB = FanDB.getInstance(application)
-    private val fanDAO = fanDB.fanDAO()
+    private val fanRepository = FanRepository(application)
 
-    fun getFans() : LiveData<List<Fan>>{
-         return fanDAO.getAllFan()
+    fun getFans() : LiveData<List<Fan>> = liveData{
+        val fans = fanRepository.getAllFans()
+
+        emit(fans)
     }
 }

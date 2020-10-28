@@ -48,8 +48,8 @@ abstract class FanDB : RoomDatabase(){
                     name = "Oli",
                     phone = "667",
                     mail = "oli@siu.com",
-                    fanLvl = "Bichologo Pro",
-                    jerseys = "Real Madrid"
+                    fanLvl = "El bicho es mi estilo de vida",
+                    jerseys = "Equipos de los cuales tiene un jersey del bicho: \n- Real Madrid"
                 )
             )
             fanDAO.insertFan(
@@ -57,8 +57,8 @@ abstract class FanDB : RoomDatabase(){
                     name = "Nora",
                     phone = "669",
                     mail = "nora@siu.com",
-                    fanLvl = "Bichologo Pro",
-                    jerseys = "Juventus"
+                    fanLvl = "El bicho es mi estilo de vida",
+                    jerseys = "Equipos de los cuales tiene un jersey del bicho: \n- Juventus"
                 )
             )
         }

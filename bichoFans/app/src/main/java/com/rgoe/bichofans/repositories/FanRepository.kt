@@ -1,6 +1,7 @@
 package com.rgoe.bichofans.repositories
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import com.rgoe.bichofans.models.entities.Fan
 import com.rgoe.bichofans.models.roomdb.FanDB
 
@@ -14,5 +15,9 @@ class FanRepository(context: Context) {
 
     suspend fun getAllFans(): List<Fan>{
         return fanDAO.getAllFanSync()
+    }
+
+    fun getAllFansLiveData(): LiveData<List<Fan>>{
+        return fanDAO.getAllFan()
     }
 }

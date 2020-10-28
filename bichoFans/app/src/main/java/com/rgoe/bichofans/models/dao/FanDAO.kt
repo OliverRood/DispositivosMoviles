@@ -11,7 +11,7 @@ import com.rgoe.bichofans.models.entities.Fan
 abstract class FanDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract fun insertFan(content: Fan)
+    abstract suspend fun insertFan(fan: Fan):Long
 
     @Query("SELECT * FROM Fan")
     abstract fun getAllFan() : LiveData<List<Fan>>

@@ -3,16 +3,19 @@ package com.rgoe.bichofans.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CheckBox
-import android.widget.CompoundButton
-import android.widget.EditText
-import android.widget.RadioButton
+import android.widget.*
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.rgoe.bichofans.R
 import com.rgoe.bichofans.adapters.JerseyAdapter
+import com.rgoe.bichofans.models.entities.Fan
 import com.rgoe.bichofans.models.entities.Jersey
+import com.rgoe.bichofans.viewmodels.addFanViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rdFan1 : RadioButton
     private lateinit var rdFan2 : RadioButton
     private lateinit var rdFan3 : RadioButton
+
+    private val addFanViewModel: addFanViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +63,70 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener{
             val intent = Intent(this, Fans::class.java)
             startActivity(intent)
+        }
+
+        val buttonSave = findViewById<MaterialButton>(R.id.button_save)
+        buttonSave.setOnClickListener { fan ->
+            val name = findViewById<EditText>(R.id.etNombre).text.toString()
+            val phone = findViewById<EditText>(R.id.etTelefono).text.toString()
+            val email = findViewById<EditText>(R.id.etEmail).text.toString()
+
+            if(name.isNullOrEmpty() || phone.isNullOrEmpty() || email.isNullOrEmpty()){
+                val alertDialog = AlertDialog.Builder(fan.context)
+                    .setTitle("ERROR")
+                    .setMessage("CAMPO VACIO AL AGREGAR")
+                    .setPositiveButton("OK",null)
+                    .create()
+                alertDialog.show()
+                return@setOnClickListener
+            }
+
+            var fanLvl = ""
+            if (rdFan1.isChecked) {
+                fanLvl += rdFan1.text
+            } else if (rdFan2.isChecked) {
+                fanLvl += rdFan2.text
+            } else if (rdFan3.isChecked) {
+                fanLvl += rdFan3.text}
+
+            var jerseys="Equipos de los cuales tiene un jersey del bicho: "
+            if (chkPortugal.isChecked)
+                jerseys+="\n- "+chkPortugal.text
+            if (chkSporting.isChecked)
+                jerseys+="\n- "+chkSporting.text
+            if (chkManchester.isChecked)
+                jerseys+="\n- "+chkManchester.text
+            if (chkRealMadrid.isChecked)
+                jerseys+="\n- "+chkRealMadrid.text
+            if (chkJuventus.isChecked)
+                jerseys+="\n- "+chkJuventus.text
+
+            val fan = Fan(
+                name = name,
+                phone = phone,
+                mail = email,
+                fanLvl = fanLvl,
+                jerseys = jerseys
+            )
+
+            addFanViewModel.insertFan(fan)
+            etNombre.text.clear()
+            etTelefono.text.clear()
+            etMail.text.clear()
+            rdFan1.isChecked=true
+            chkSporting.isChecked=false
+            chkPortugal.isChecked=false
+            chkManchester.isChecked=false
+            chkJuventus.isChecked=false
+            chkRealMadrid.isChecked=false
+        }
+
+        addFanViewModel.notifyInsertFan().observe(this) { succesful ->
+            if (succesful){
+                Toast.makeText(this,"Guardado exitoso",Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(this,"No se pudo completar el registro",Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -116,39 +185,4 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = jerseyAdapter
         jerseyAdapter.notifyDataSetChanged()
     }
-
-    /*
-    private val fabClick = View.OnClickListener { fab ->
-        var info = "Nombre: "+etNombre.text+"\nTelefono: "+etTelefono.text+"\nEmail: "+etMail.text+"\n\nNivel de Fan: "
-
-        if(rdFan1.isChecked) {
-            info += rdFan1.text
-        } else if(rdFan2.isChecked) {
-            info += rdFan2.text
-        } else if (rdFan3.isChecked){
-            info+=rdFan3.text}
-
-        info+="\n\nEquipos de los cuales tiene un jersey del bicho:"
-        if (chkPortugal.isChecked)
-            info+="\n- "+chkPortugal.text
-        if (chkSporting.isChecked)
-            info+="\n- "+chkSporting.text
-        if (chkManchester.isChecked)
-            info+="\n- "+chkManchester.text
-        if (chkRealMadrid.isChecked)
-            info+="\n- "+chkRealMadrid.text
-        if (chkJuventus.isChecked)
-            info+="\n- "+chkJuventus.text
-
-        val alertDialog = AlertDialog.Builder(fab.context)
-            .setTitle("DATOS DEL BICHO FAN")
-            .setMessage(info)
-            .setPositiveButton("Ok", null)
-            .setNegativeButton("No", null)
-            .create()
-
-        alertDialog.show()
-    }
-
-     */
 }

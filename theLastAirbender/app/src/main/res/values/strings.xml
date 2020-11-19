@@ -1,3 +1,38 @@
 <resources>
-    <string name="app_name">TheLastAirbender</string>
+    <string name="app_name">The Last Airbender</string>
+    <string name="app_creator">Rodriguez Gomez Oliver Eduardo</string>
+    <string name="date">November, 2020</string>
+
+    <!-- Activities -->
+    <string name="act_characters">Characters</string>
+    <string name="act_character">Character</string>
+    <string name="act_characterSearch">Character by Name</string>
+    <string name="act_avatars">Avatars</string>
+    <string name="act_about">About</string>
+
+    <!-- Character Card -->
+    <string name="card_affiliation">Affiliation</string>
+    <string name="card_position">Position</string>
+    <string name="card_Weapon">Weapon</string>
+    <string name="card_">abc</string>
+
+    <!-- Avatar Card -->
+    <string name="avatar_enemies">Enemies</string>
+    <string name="avatar_predecessor">Predecessor</string>
+    <string name="avatar_">abc</string>
+
+    <!-- Actions -->
+    <string name="search">Search</string>
+    <string name="searchHint">Type a name here...</string>
+
+    <!-- About -->
+    <string name="school">School</string>
+    <string name="school_name">INSTITUTO TECNOLOGICO NACIONAL DE MEXICO (Campus Culiacan)</string>
+    <string name="subject">Subject</string>
+    <string name="subject_name">Desarrollo de Aplicaciones para Dispositivos Moviles</string>
+    <string name="teacher">Teacher</string>
+    <string name="teacher_name">Gonzalez Hernandez Francisco</string>
+    <string name="assignment">Assignment</string>
+    <string name="assignment_name">RESTful API</string>
+    <string name="student">Student</string>
 </resources>

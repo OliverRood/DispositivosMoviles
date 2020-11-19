@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#FFC971</color>
+    <color name="colorPrimaryDark">#D36D56</color>
+    <color name="colorAccent">#9BB7CF</color>
+    <color name="colorBlack">#1E1E24</color>
+    <color name="colorWhite">#f5f6fa</color>
+
+    <!-- Nations -->
+    <color name="colorEarth">#93A25F</color>
+    <color name="colorWater">#576580</color>
+    <color name="colorAir">#9BB7CF</color>
+    <color name="colorFire">#4A1402</color>
 </resources>

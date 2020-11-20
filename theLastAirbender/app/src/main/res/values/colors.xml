@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#D36D56</color>
     <color name="colorAccent">#9BB7CF</color>
     <color name="colorBlack">#1E1E24</color>
+    <color name="colorBodyBlack">#212125</color>
+    <color name="colorCaptionBlack">#464649</color>
     <color name="colorWhite">#f5f6fa</color>
 
     <!-- Nations -->

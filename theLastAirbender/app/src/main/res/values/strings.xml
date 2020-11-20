@@ -10,6 +10,13 @@
     <string name="act_avatars">Avatars</string>
     <string name="act_about">About</string>
 
+    <!-- Gender -->
+    <string name="character_gender">Gender</string>
+    <string name="character_weapon">Weapon</string>
+    <string name="character_affiliation">Affiliation</string>
+    <string name="character_profession">Profession</string>
+    <string name="character_position">Position</string>
+
     <!-- Character Card -->
     <string name="card_affiliation">Affiliation</string>
     <string name="card_position">Position</string>

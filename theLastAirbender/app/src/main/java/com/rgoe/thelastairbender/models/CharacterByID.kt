@@ -15,10 +15,10 @@ data class CharacterByID (
     @SerializedName("skin") val skin : String,
     @SerializedName("love") val love : String,
     @SerializedName("weapon") val weapon : String,
-    @SerializedName("profession") val profession : String,
-    @SerializedName("position") val position : String,
-    @SerializedName("predecessor") val predecessor : String,
-    @SerializedName("affiliation") val affiliation : String,
-    @SerializedName("first") val first : String
+    @SerializedName("profession") val profession : String?,
+    @SerializedName("position") val position : String?,
+    @SerializedName("predecessor") val predecessor : String?,
+    @SerializedName("affiliation") val affiliation : String?,
+    @SerializedName("first") val first : String?
 
 )

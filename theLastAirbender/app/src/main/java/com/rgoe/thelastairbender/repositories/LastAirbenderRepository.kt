@@ -7,6 +7,7 @@ import com.rgoe.thelastairbender.net.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Url
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -63,6 +64,25 @@ class LastAirbenderRepository {
                 }
 
                 override fun onFailure(call: Call<List<Avatar>>, t: Throwable) {
+                    it.resumeWithException(t)
+                }
+            })
+        }
+    }
+
+    suspend fun getCharacterSearch(name: String):List<Character>{
+        return suspendCoroutine {
+            RetrofitInstance.lastAirbenderService.getCharacterByName(name).enqueue(object :
+                Callback<List<Character>>{
+                override fun onResponse(
+                    call: Call<List<Character>>,
+                    response: Response<List<Character>>
+                ) {
+                    Log.d("Prueba Search", response.body().toString())
+                    it.resume(response.body()!!)
+                }
+
+                override fun onFailure(call: Call<List<Character>>, t: Throwable) {
                     it.resumeWithException(t)
                 }
             })

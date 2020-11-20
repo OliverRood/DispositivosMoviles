@@ -47,7 +47,7 @@ class MainActivityViewModel (application: Application):AndroidViewModel(applicat
                         result._id,
                         result.photoUrl,
                         result.name,
-                        result.affiliation?.trimStart()?: "Ninguna"
+                        result.affiliation?.trimStart()?:"Ninguna"
                     )
                 }
             )

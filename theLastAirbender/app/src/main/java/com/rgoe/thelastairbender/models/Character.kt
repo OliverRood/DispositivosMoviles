@@ -9,6 +9,6 @@ data class Character (
     @SerializedName("enemies") val enemies : List<String>,
     @SerializedName("photoUrl") val photoUrl : String,
     @SerializedName("name") val name : String,
-    @SerializedName("affiliation") val affiliation : String
+    @SerializedName("affiliation") val affiliation : String?
 
 )

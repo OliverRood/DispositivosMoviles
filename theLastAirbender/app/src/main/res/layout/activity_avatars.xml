@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.AvatarsActivity">
+    tools:context=".views.AvatarsActivity"
+    android:background="@color/colorPrimaryDark">
 
     <TextView
         android:id="@+id/txtAvatars"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/act_avatars"
+        android:textColor="@color/colorWhite"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"

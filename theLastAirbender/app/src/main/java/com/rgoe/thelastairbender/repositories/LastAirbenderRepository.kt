@@ -1,6 +1,7 @@
 package com.rgoe.thelastairbender.repositories
 
 import android.util.Log
+import com.rgoe.thelastairbender.models.Avatar
 import com.rgoe.thelastairbender.models.Character
 import com.rgoe.thelastairbender.net.RetrofitInstance
 import retrofit2.Call
@@ -44,6 +45,24 @@ class LastAirbenderRepository {
                 }
 
                 override fun onFailure(call: Call<List<Character>>, t: Throwable) {
+                    it.resumeWithException(t)
+                }
+            })
+        }
+    }
+
+    suspend fun getAvatars():List<Avatar>{
+        return suspendCoroutine {
+            RetrofitInstance.lastAirbenderService.getAvatars().enqueue(object :
+                Callback<List<Avatar>>{
+                override fun onResponse(
+                    call: Call<List<Avatar>>,
+                    response: Response<List<Avatar>>
+                ) {
+                    it.resume(response.body()!!)
+                }
+
+                override fun onFailure(call: Call<List<Avatar>>, t: Throwable) {
                     it.resumeWithException(t)
                 }
             })

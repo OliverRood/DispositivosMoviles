@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.CharactersActivity">
+    tools:context=".views.CharactersActivity"
+    android:background="@color/colorPrimaryDark">
 
     <TextView
         android:id="@+id/txtCharacters"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/act_characters"
+        android:textColor="@color/colorWhite"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -42,9 +44,6 @@
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:tint="@color/colorWhite"
+        android:backgroundTint="@color/colorPrimary"
         app:srcCompat="@drawable/ic_search" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

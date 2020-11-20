@@ -34,9 +34,9 @@ class CharactersAdapter: RecyclerView.Adapter<CharactersAdapter.CharacterViewHol
             val result = listCharacters[position]
             holder.onBind(result)
             holder.itemView.txtCharacterName.setOnClickListener{
-                var intent = Intent(it.context, CharacterActivity::class.java)
-                intent.putExtra("characterID", holder.itemView.txtCharacterID.text.toString())
-                it.context.startActivity(intent)
+                var intentCharacterActivity = Intent(it.context, CharacterActivity::class.java)
+                intentCharacterActivity.putExtra("characterID", holder.itemView.txtCharacterID.text.toString())
+                it.context.startActivity(intentCharacterActivity)
             }
         } else {
             //onBottomReachedListener?.onBottomReached()

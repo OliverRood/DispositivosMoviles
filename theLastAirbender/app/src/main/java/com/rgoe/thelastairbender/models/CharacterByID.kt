@@ -14,7 +14,7 @@ data class CharacterByID (
     @SerializedName("hair") val hair : String,
     @SerializedName("skin") val skin : String,
     @SerializedName("love") val love : String,
-    @SerializedName("weapon") val weapon : String,
+    @SerializedName("weapon") val weapon : String?,
     @SerializedName("profession") val profession : String?,
     @SerializedName("position") val position : String?,
     @SerializedName("predecessor") val predecessor : String?,

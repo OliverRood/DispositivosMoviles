@@ -6,165 +6,186 @@
 
     <data>
         <variable
-            name="character"
-            type="com.rgoe.thelastairbender.models.CharacterByIDView" />
+            name="characterByID"
+            type="com.rgoe.thelastairbender.models.CharacterByID" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imgCharacter"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_image_24"/>
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
 
-    <TextView
-        android:id="@+id/txtCharacterName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Name"
-        android:textSize="42dp"
-        android:textStyle="bold"
-        android:textColor="@color/colorBlack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgCharacter"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:elevation="3dp"
+            android:focusable="true"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp">
 
-    <TextView
-        android:id="@+id/txtViewCharacterGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/character_gender"
-        android:textStyle="normal"
-        android:textColor="@color/colorCaptionBlack"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCharacterName"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtCharacterGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="16dp"
-        android:paddingBottom="8dp"
-        android:text="Abc"
-        android:textColor="@color/colorBodyBlack"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterGender"/>
+                <ImageView
+                    android:id="@+id/imgCharacter"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:imageUrl="@{characterByID.photoUrl.toString()}"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_image_24" />
 
-    <TextView
-        android:id="@+id/txtViewCharacterWeapon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/character_weapon"
-        android:textStyle="normal"
-        android:textColor="@color/colorCaptionBlack"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCharacterGender"/>
+                <TextView
+                    android:id="@+id/txtCharacterName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@{characterByID.name.toString()}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="42dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgCharacter" />
 
-    <TextView
-        android:id="@+id/txtCharacterWeapon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="16dp"
-        android:paddingBottom="8dp"
-        android:text="Abc"
-        android:textColor="@color/colorBodyBlack"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterWeapon"/>
+                <TextView
+                    android:id="@+id/txtViewCharacterGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/character_gender"
+                    android:textColor="@color/colorCaptionBlack"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCharacterName" />
 
-    <TextView
-        android:id="@+id/txtViewCharacterAffiliation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/character_affiliation"
-        android:textStyle="normal"
-        android:textColor="@color/colorCaptionBlack"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCharacterWeapon"/>
+                <TextView
+                    android:id="@+id/txtCharacterGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:paddingBottom="8dp"
+                    android:text="@{characterByID.gender.toString()}"
+                    android:textColor="@color/colorBodyBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterGender" />
 
-    <TextView
-        android:id="@+id/txtCharacterAffiliation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="16dp"
-        android:paddingBottom="8dp"
-        android:text="Abc"
-        android:textColor="@color/colorBodyBlack"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterAffiliation"/>
+                <TextView
+                    android:id="@+id/txtViewCharacterWeapon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/character_weapon"
+                    android:textColor="@color/colorCaptionBlack"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCharacterGender" />
 
-    <TextView
-        android:id="@+id/txtViewCharacterProfession"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/character_profession"
-        android:textStyle="normal"
-        android:textColor="@color/colorCaptionBlack"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCharacterAffiliation"/>
+                <TextView
+                    android:id="@+id/txtCharacterWeapon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:paddingBottom="8dp"
+                    android:text="@{characterByID.weapon.toString()}"
+                    android:textColor="@color/colorBodyBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterWeapon" />
 
-    <TextView
-        android:id="@+id/txtCharacterProfession"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="16dp"
-        android:paddingBottom="8dp"
-        android:text="Abc"
-        android:textColor="@color/colorBodyBlack"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterProfession"/>
+                <TextView
+                    android:id="@+id/txtViewCharacterAffiliation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/character_affiliation"
+                    android:textColor="@color/colorCaptionBlack"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCharacterWeapon" />
 
-    <TextView
-        android:id="@+id/txtViewCharacterPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/character_position"
-        android:textStyle="normal"
-        android:textColor="@color/colorCaptionBlack"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCharacterProfession"/>
+                <TextView
+                    android:id="@+id/txtCharacterAffiliation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:paddingBottom="8dp"
+                    android:text="@{characterByID.affiliation.toString()}"
+                    android:textColor="@color/colorBodyBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterAffiliation" />
 
-    <TextView
-        android:id="@+id/txtCharacterPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="16dp"
-        android:paddingBottom="8dp"
-        android:text="Abc"
-        android:textColor="@color/colorBodyBlack"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterPosition"/>
+                <TextView
+                    android:id="@+id/txtViewCharacterProfession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/character_profession"
+                    android:textColor="@color/colorCaptionBlack"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCharacterAffiliation" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/txtCharacterProfession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:paddingBottom="8dp"
+                    android:text="@{characterByID.profession.toString()}"
+                    android:textColor="@color/colorBodyBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterProfession" />
+
+                <TextView
+                    android:id="@+id/txtViewCharacterPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/character_position"
+                    android:textColor="@color/colorCaptionBlack"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCharacterProfession" />
+
+                <TextView
+                    android:id="@+id/txtCharacterPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:paddingBottom="16dp"
+                    android:text="@{characterByID.position.toString()}"
+                    android:textColor="@color/colorBodyBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtViewCharacterPosition" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

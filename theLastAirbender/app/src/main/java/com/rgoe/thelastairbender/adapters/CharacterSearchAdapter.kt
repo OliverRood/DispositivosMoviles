@@ -29,7 +29,7 @@ class CharacterSearchAdapter : RecyclerView.Adapter<CharacterSearchAdapter.Chara
             holder.onBind(result)
             holder.itemView.txtCharacterSearchName.setOnClickListener{
                 var intentCharacterSearch = Intent(it.context,CharacterActivity::class.java)
-                intentCharacterSearch.putExtra("characterSearchID", holder.itemView.txtCharacterSearchID.text.toString())
+                intentCharacterSearch.putExtra("characterID", holder.itemView.txtCharacterSearchID.text.toString())
                 it.context.startActivity(intentCharacterSearch)
             }
         } else{

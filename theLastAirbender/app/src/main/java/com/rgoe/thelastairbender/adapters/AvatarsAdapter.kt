@@ -29,7 +29,7 @@ class AvatarsAdapter: RecyclerView.Adapter<AvatarsAdapter.AvatarViewHolder>() {
             holder.onBind(result)
             holder.itemView.txtAvatarName.setOnClickListener{
                 var intentCharacterActivity = Intent(it.context, CharacterActivity::class.java)
-                intentCharacterActivity.putExtra("avatarID", holder.itemView.txtAvatarID.text.toString())
+                intentCharacterActivity.putExtra("characterID", holder.itemView.txtAvatarID.text.toString())
                 it.context.startActivity(intentCharacterActivity)
             }
         } else {

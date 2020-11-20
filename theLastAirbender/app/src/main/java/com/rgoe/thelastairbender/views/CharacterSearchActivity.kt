@@ -17,6 +17,7 @@ import com.rgoe.thelastairbender.BASE_URL
 import com.rgoe.thelastairbender.R
 import com.rgoe.thelastairbender.adapters.CharacterSearchAdapter
 import com.rgoe.thelastairbender.viewmodels.CharacterSearchActivityViewModel
+import kotlinx.android.synthetic.main.activity_character_search.view.*
 
 @BindingAdapter("imageUrl")
 fun loadImageSearch(view: ImageView, url: String?) {
@@ -34,21 +35,21 @@ class CharacterSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_search)
 
-        val recyclerViewCharacterSearch = findViewById<RecyclerView>(R.id.rvCharacterSearch)
-        val characterSearchAdapter = CharacterSearchAdapter()
-
-        recyclerViewCharacterSearch.layoutManager=LinearLayoutManager(this)
-        recyclerViewCharacterSearch.adapter=characterSearchAdapter
-
-        characterSearchActivityViewModel.characterSearchLiveData.observe(this, Observer { it ->
-            characterSearchAdapter.addCharacterSearch(it)
-            characterSearchAdapter.notifyDataSetChanged()
-        })
-
-        var inputText = findViewById<TextInputLayout>(R.id.tilName)
-        var name = inputText.editText.toString()
         val mbSearch = findViewById<MaterialButton>(R.id.mbSearch)
         mbSearch.setOnClickListener{
+            var recyclerViewCharacterSearch = findViewById<RecyclerView>(R.id.rvCharacterSearch)
+            var characterSearchAdapter = CharacterSearchAdapter()
+
+            recyclerViewCharacterSearch.layoutManager=LinearLayoutManager(this)
+            recyclerViewCharacterSearch.adapter=characterSearchAdapter
+
+            characterSearchActivityViewModel.characterSearchLiveData.observe(this, Observer { it ->
+                characterSearchAdapter.addCharacterSearch(it)
+                characterSearchAdapter.notifyDataSetChanged()
+            })
+
+            var inputText = findViewById<TextInputLayout>(R.id.tilName)
+            var name = inputText.tieName.text.toString()
             characterSearchActivityViewModel.getCharacterSearch(name)
         }
 

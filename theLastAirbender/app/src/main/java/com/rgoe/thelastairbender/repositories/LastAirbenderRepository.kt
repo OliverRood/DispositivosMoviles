@@ -3,6 +3,7 @@ package com.rgoe.thelastairbender.repositories
 import android.util.Log
 import com.rgoe.thelastairbender.models.Avatar
 import com.rgoe.thelastairbender.models.Character
+import com.rgoe.thelastairbender.models.CharacterByID
 import com.rgoe.thelastairbender.net.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,11 +79,30 @@ class LastAirbenderRepository {
                     call: Call<List<Character>>,
                     response: Response<List<Character>>
                 ) {
-                    Log.d("Prueba Search", response.body().toString())
+                    Log.d("Prueba Search", name.toString())
                     it.resume(response.body()!!)
                 }
 
                 override fun onFailure(call: Call<List<Character>>, t: Throwable) {
+                    it.resumeWithException(t)
+                }
+            })
+        }
+    }
+
+    suspend fun getCharacterByID(id: String):CharacterByID{
+        return suspendCoroutine {
+            RetrofitInstance.lastAirbenderService.getCharacterByID(id).enqueue(object :
+                Callback<CharacterByID>{
+                override fun onResponse(
+                    call: Call<CharacterByID>,
+                    response: Response<CharacterByID>
+                ) {
+                    Log.d("Prueba ID", id.toString())
+                    it.resume(response.body()!!)
+                }
+
+                override fun onFailure(call: Call<CharacterByID>, t: Throwable) {
                     it.resumeWithException(t)
                 }
             })

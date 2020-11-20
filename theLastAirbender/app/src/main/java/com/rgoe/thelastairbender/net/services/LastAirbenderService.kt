@@ -23,6 +23,6 @@ interface LastAirbenderService {
     @GET("characters")
     fun getCharacterByName(@Query("name") name:String):Call<List<Character>>
 
-    @GET()
-    fun getCharacterByID(@Url url: String):Call<List<CharacterByID>>
+    @GET("characters/{id}")
+    fun getCharacterByID(@Path("id") id:String):Call<CharacterByID>
 }

@@ -40,6 +40,6 @@
     <string name="teacher">Teacher</string>
     <string name="teacher_name">Gonzalez Hernandez Francisco</string>
     <string name="assignment">Assignment</string>
-    <string name="assignment_name">RESTful API</string>
+    <string name="assignment_name">Diseño y Creación de aplicación que consuma una API RESTful</string>
     <string name="student">Student</string>
 </resources>

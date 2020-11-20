@@ -37,6 +37,8 @@ class CharacterSearchActivity : AppCompatActivity() {
 
         val mbSearch = findViewById<MaterialButton>(R.id.mbSearch)
         mbSearch.setOnClickListener{
+            characterSearchActivityViewModel.cleanSearch()
+
             var recyclerViewCharacterSearch = findViewById<RecyclerView>(R.id.rvCharacterSearch)
             var characterSearchAdapter = CharacterSearchAdapter()
 

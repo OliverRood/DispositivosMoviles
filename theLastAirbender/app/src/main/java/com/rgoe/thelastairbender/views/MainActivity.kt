@@ -12,9 +12,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
 import com.rgoe.thelastairbender.R
 import com.rgoe.thelastairbender.databinding.ActivityMainBinding
 import com.rgoe.thelastairbender.viewmodels.MainActivityViewModel
+import kotlinx.android.synthetic.main.card_character.view.*
+import org.w3c.dom.Text
 
 @BindingAdapter("android:imageUrlRandom")
 fun loadImageRandom(view: ImageView, url: String?) {
@@ -37,6 +40,14 @@ class MainActivity : AppCompatActivity() {
             binding.executePendingBindings()
         })
         mainActivityViewModel.getCharacterRandom()
+
+        val txtCharacterRandomName = findViewById<TextView>(R.id.txtCharacterRandomName)
+        txtCharacterRandomName.setOnClickListener{
+            var intentCardRandom = Intent(this, CharacterActivity::class.java)
+            var id = findViewById<TextView>(R.id.txtCharacterRandomID)
+            intentCardRandom.putExtra("characterID", id.text.toString())
+            startActivity(intentCardRandom)
+        }
 
         val charactersButton = findViewById<MaterialButton>(R.id.mbCharacters)
         charactersButton.setOnClickListener{

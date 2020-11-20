@@ -32,4 +32,8 @@ class CharacterSearchActivityViewModel (application: Application): AndroidViewMo
             characterSearchLiveData.postValue(listCharacterSearch)
         }
     }
+
+    fun cleanSearch(){
+        listCharacterSearch.clear()
+    }
 }

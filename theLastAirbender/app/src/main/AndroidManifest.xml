@@ -16,7 +16,8 @@
         <activity android:name=".views.AvatarsActivity" />
         <activity android:name=".views.CharacterActivity" />
         <activity android:name=".views.CharactersActivity" />
-        <activity android:name=".views.MainActivity">
+        <activity android:name=".views.MainActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

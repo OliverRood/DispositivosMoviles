@@ -2,7 +2,9 @@ package com.rgoe.thelastairbender.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
@@ -36,7 +38,5 @@ class CharacterActivity : AppCompatActivity() {
             binding.executePendingBindings()
         })
         characterActivityViewModal.getCharacterByID(id)
-
-
     }
 }

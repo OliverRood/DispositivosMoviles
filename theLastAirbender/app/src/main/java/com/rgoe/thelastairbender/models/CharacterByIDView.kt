@@ -5,8 +5,8 @@ data class CharacterByIDView (
     var img: String,
     var name: String,
     var gender: String,
-    var weapon: String,
-    var affiliation: String,
-    var profession: String,
-    var position: String
+    var weapon: String?,
+    var affiliation: String?,
+    var profession: String?,
+    var position: String?
 )

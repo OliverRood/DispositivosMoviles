@@ -7,13 +7,18 @@
     <data>
         <variable
             name="characterByID"
-            type="com.rgoe.thelastairbender.models.CharacterByID" />
+            type="com.rgoe.thelastairbender.models.CharacterByIDView" />
     </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark">
+        android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -34,7 +39,7 @@
                     android:id="@+id/imgCharacter"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-                    android:imageUrl="@{characterByID.photoUrl.toString()}"
+                    android:imageUrl="@{characterByID.img.toString()}"
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -194,4 +199,5 @@
 
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

@@ -1,12 +1,15 @@
 package com.rockbass2560.mycamera
 
+import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
 class ImagePageFragment(private val photo: File) : Fragment() {
@@ -21,7 +24,6 @@ class ImagePageFragment(private val photo: File) : Fragment() {
         val photoImageView = view.findViewById<ImageView>(R.id.photo_imageview)
         val bitmap = BitmapFactory.decodeFile(photo.absolutePath)
         photoImageView.setImageBitmap(bitmap)
-
         return view
     }
 
